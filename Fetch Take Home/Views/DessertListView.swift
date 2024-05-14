@@ -18,7 +18,9 @@ struct URLImage: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 170, height: 150)
-                    .background(Color.gray)
+                    
+                    
+                    
             } else {
                 Image(systemName: "photo.on.rectangle")
                     .resizable()
@@ -45,7 +47,7 @@ struct URLImage: View {
     }
 }
 struct DessertListView: View {
-    @StateObject var viewModel = ViewModel()
+    @StateObject var viewModel = DessertListViewModel()
 
     var body: some View {
         NavigationView {
@@ -58,7 +60,7 @@ struct DessertListView: View {
                 }
             }.navigationTitle("Recipes")
             .onAppear {
-                viewModel.fetch()
+                viewModel.loadDessertData()
             }
         }
     }

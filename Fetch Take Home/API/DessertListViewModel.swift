@@ -18,10 +18,10 @@ struct Response: Codable {
     let meals: [Dessert]
 }
 
-class ViewModel: ObservableObject {
+class DessertListViewModel: ObservableObject {
     @Published var desserts: [Dessert] = []
     
-    func fetch() {
+    func loadDessertData() {
         guard let url = URL(string: "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert") else {
             return
         }
@@ -31,7 +31,7 @@ class ViewModel: ObservableObject {
                 return
             }
             
-            // Convert to JSON
+            
             do {
                 let response = try JSONDecoder().decode(Response.self, from: data)
                 DispatchQueue.main.async {
