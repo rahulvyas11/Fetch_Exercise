@@ -1,5 +1,5 @@
 //
-//  ViewModel.swift
+//  DessertListViewModel.swift
 //  Fetch Take Home
 //
 //  Created by Rahul Vyas on 5/13/24.
@@ -7,16 +7,6 @@
 
 import Foundation
 import SwiftUI
-struct Dessert: Hashable, Codable {
-    let strMeal: String
-    let strMealThumb: URL
-    let idMeal: String
-}
-
-// New struct to model the JSON structure
-struct Response: Codable {
-    let meals: [Dessert]
-}
 
 class DessertListViewModel: ObservableObject {
     @Published var desserts: [Dessert] = []
@@ -31,9 +21,8 @@ class DessertListViewModel: ObservableObject {
                 return
             }
             
-            
             do {
-                let response = try JSONDecoder().decode(Response.self, from: data)
+                let response = try JSONDecoder().decode(DessertTilesReponse.self, from: data)
                 DispatchQueue.main.async {
                     self?.desserts = response.meals
                 }

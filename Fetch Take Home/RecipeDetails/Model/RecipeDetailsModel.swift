@@ -7,11 +7,12 @@
 
 import Foundation
 
-struct RecipeDetailsListModel: Encodable {
-    var meals: [RecipeDetailsModel]?
+
+struct RecipeList: Codable {
+    let meals: [RecipeDetailsModel]?
 }
 
-struct RecipeDetailsModel: Encodable {
+struct RecipeDetailsModel: Hashable, Codable {
     var idMeal: String?
     var strMeal: String?
     var trDrinkAlternate: String?
@@ -63,3 +64,5 @@ struct RecipeDetailsModel: Encodable {
     var strSource:URL?
     
 }
+
+

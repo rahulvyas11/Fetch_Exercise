@@ -1,13 +1,15 @@
 //
-//  DessertListView.swift
+//  URLImage.swift
 //  Fetch Take Home
 //
-//  Created by Rahul Vyas on 5/13/24.
+//  Created by Rahul Vyas on 5/14/24.
 //
+
 import SwiftUI
 
 struct URLImage: View {
     let url: URL
+    
     @State private var data: Data?
     @State private var isImageLoaded = false
 
@@ -35,7 +37,7 @@ struct URLImage: View {
     private func fetchData() {
         let task = URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
-                print("Error downloading image: \(error)")
+                print("Error downloading image: \(url) \(error)")
                 return
             }
             DispatchQueue.main.async {
@@ -45,29 +47,4 @@ struct URLImage: View {
         }
         task.resume()
     }
-}
-struct DessertListView: View {
-    @StateObject var viewModel = DessertListViewModel()
-
-    var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack {
-                    ForEach(viewModel.desserts, id: \.self) { dessert in
-                        RecipeTile(image: dessert.strMealThumb, name: dessert.strMeal)
-                            .padding(.horizontal)
-                    }
-                }
-            }.navigationTitle("Recipes")
-            .onAppear {
-                viewModel.loadDessertData()
-            }
-        }
-    }
-}
-
-
-
-#Preview {
-    DessertListView()
 }
