@@ -25,7 +25,7 @@ struct InstructionsView: View {
                         HStack(alignment: .top, spacing: 2) {
                             MediumText(text:"\(number).")
                                 .foregroundColor(Color.red)
-                               .bold()
+                              
                             MediumText(text:line)
                             }.padding(.bottom, 2)
                     }

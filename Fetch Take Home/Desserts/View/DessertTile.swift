@@ -24,7 +24,6 @@ struct DessertTile: View {
 
                 VStack(alignment: .leading) {
                     MediumText(text:name)
-                        .bold()
                         .frame(maxWidth: .infinity, alignment: .center)
                         .foregroundColor(Color.black)
                 }.padding(.horizontal)

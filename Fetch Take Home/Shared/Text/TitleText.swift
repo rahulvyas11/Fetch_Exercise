@@ -13,7 +13,7 @@ struct TitleText: View {
     var body: some View {
         Text(text)
             .font(.custom("Epilogue", size: 30))
-            .bold()
+           
             
     }
 }

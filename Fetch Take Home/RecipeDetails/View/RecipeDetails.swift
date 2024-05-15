@@ -37,7 +37,7 @@ struct RecipeDetails: View {
                 
                     VStack(alignment: .leading){
                         HeadingText(text: "Ingredients")
-                            .bold()
+                           
 
                         
                         IngredientsView(ingredientMeasurementPairs: recipeDetailsViewModel.ingredientMeasurePairs())
@@ -47,7 +47,7 @@ struct RecipeDetails: View {
 
                     VStack(alignment: .leading){
                         HeadingText(text: "Instructions")
-                            .bold()
+                           
                         
 
                         InstructionsView(instructions: recipeDetailsViewModel.instructions())
