@@ -24,11 +24,10 @@ struct RecipeDetails: View {
                                         
                                 UIApplication.shared.open(recipeDetailsViewModel.youtubeURL())
                                     }) {
-                                       
-                                            Image("youtube_logo") // Use your named asset
+                                            Image("youtube_logo_final")
                                                 .resizable()
                                                 .scaledToFit()
-                                                .frame(width: 50, height: 50)
+                                                .frame(width: 70, height: 70)
                                     }
                                    
                                 
@@ -37,8 +36,7 @@ struct RecipeDetails: View {
                 
                     VStack(alignment: .leading){
                         HeadingText(text: "Ingredients")
-                           
-
+     
                         
                         IngredientsView(ingredientMeasurementPairs: recipeDetailsViewModel.ingredientMeasurePairs())
                         
