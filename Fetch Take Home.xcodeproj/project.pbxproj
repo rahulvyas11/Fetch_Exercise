@@ -128,7 +128,6 @@
 				7390D21E2BF2743900FCB436 /* Assets.xcassets */,
 				7390D2692BF40E7200FCB436 /* Desserts */,
 				7390D21A2BF2743700FCB436 /* Fetch_Take_HomeApp.swift */,
-				7390D2522BF303A900FCB436 /* Models */,
 				7390D2202BF2743900FCB436 /* Preview Content */,
 				7390D26A2BF40E7C00FCB436 /* RecipeDetails */,
 				7390D26B2BF40E8600FCB436 /* Shared */,
@@ -159,13 +158,6 @@
 				7390D2372BF2743A00FCB436 /* Fetch_Take_HomeUITestsLaunchTests.swift */,
 			);
 			path = "Fetch Take HomeUITests";
-			sourceTree = "<group>";
-		};
-		7390D2522BF303A900FCB436 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		7390D2552BF304DE00FCB436 /* API */ = {
