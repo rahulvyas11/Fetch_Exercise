@@ -1,7 +1,7 @@
 # Dessert Recipes App
 ## Installation
 Open the xcodeproj file and build the project. Fetch_Take_HomeApp is the main function.
-
+Compatible with IOS Versions 15.0 and Up. 
 
 ## Overview
 This is my submission of the Fetch IOS Engineer Take Home Exercise. Below are details on how I implemented the application.
