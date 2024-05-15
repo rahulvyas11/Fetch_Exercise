@@ -12,7 +12,7 @@ struct HeadingText: View {
     
     var body: some View {
         Text(text)
-            .font(.custom("Epilogue", size: 24))
+            .font(.custom("Epilogue", size: 20))
             
     }
 }

@@ -18,7 +18,7 @@ struct DessertTile: View {
         NavigationLink(destination: RecipeDetails(mealId: mealID)) {
             HStack {
                 URLImage(url: image)
-                    .frame(width: 130, height: 70)
+                    .frame(width: 130, height: 100)
                     .cornerRadius(10)
                     
 
