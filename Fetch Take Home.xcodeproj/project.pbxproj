@@ -25,6 +25,10 @@
 		7390D2682BF40E4B00FCB436 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390D2672BF40E4A00FCB436 /* URLImage.swift */; };
 		7390D2762BF40F1B00FCB436 /* DessertTilesReponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390D2752BF40F1B00FCB436 /* DessertTilesReponse.swift */; };
 		7390D2782BF40FB100FCB436 /* RecipeDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390D2572BF30A2D00FCB436 /* RecipeDetails.swift */; };
+		7390D27A2BF43EFE00FCB436 /* SmallText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390D2792BF43EFE00FCB436 /* SmallText.swift */; };
+		7390D27C2BF440A000FCB436 /* TitleText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390D27B2BF440A000FCB436 /* TitleText.swift */; };
+		7390D2802BF4558700FCB436 /* InstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390D27F2BF4558700FCB436 /* InstructionsView.swift */; };
+		7390D2822BF4717100FCB436 /* APIStandard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7390D2812BF4717100FCB436 /* APIStandard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,10 @@
 		7390D2652BF3E90100FCB436 /* HeadingText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadingText.swift; sourceTree = "<group>"; };
 		7390D2672BF40E4A00FCB436 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 		7390D2752BF40F1B00FCB436 /* DessertTilesReponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DessertTilesReponse.swift; sourceTree = "<group>"; };
+		7390D2792BF43EFE00FCB436 /* SmallText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmallText.swift; sourceTree = "<group>"; };
+		7390D27B2BF440A000FCB436 /* TitleText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleText.swift; sourceTree = "<group>"; };
+		7390D27F2BF4558700FCB436 /* InstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstructionsView.swift; sourceTree = "<group>"; };
+		7390D2812BF4717100FCB436 /* APIStandard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIStandard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +171,7 @@
 		7390D2552BF304DE00FCB436 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				7390D2812BF4717100FCB436 /* APIStandard.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -170,9 +179,9 @@
 		7390D2692BF40E7200FCB436 /* Desserts */ = {
 			isa = PBXGroup;
 			children = (
-				7390D2742BF40EF100FCB436 /* ViewModel */,
 				7390D2732BF40EED00FCB436 /* Model */,
 				7390D2722BF40EE900FCB436 /* View */,
+				7390D2742BF40EF100FCB436 /* ViewModel */,
 			);
 			path = Desserts;
 			sourceTree = "<group>";
@@ -180,9 +189,9 @@
 		7390D26A2BF40E7C00FCB436 /* RecipeDetails */ = {
 			isa = PBXGroup;
 			children = (
-				7390D2712BF40EC800FCB436 /* ViewModel */,
 				7390D2702BF40EC400FCB436 /* Model */,
 				7390D26F2BF40EBF00FCB436 /* View */,
+				7390D2712BF40EC800FCB436 /* ViewModel */,
 			);
 			path = RecipeDetails;
 			sourceTree = "<group>";
@@ -200,8 +209,10 @@
 		7390D26C2BF40E8C00FCB436 /* Text */ = {
 			isa = PBXGroup;
 			children = (
-				7390D2632BF3E74A00FCB436 /* MediumText.swift */,
+				7390D27B2BF440A000FCB436 /* TitleText.swift */,
 				7390D2652BF3E90100FCB436 /* HeadingText.swift */,
+				7390D2632BF3E74A00FCB436 /* MediumText.swift */,
+				7390D2792BF43EFE00FCB436 /* SmallText.swift */,
 			);
 			path = Text;
 			sourceTree = "<group>";
@@ -227,6 +238,7 @@
 			children = (
 				7390D25F2BF3D85000FCB436 /* IngredientsView.swift */,
 				7390D2572BF30A2D00FCB436 /* RecipeDetails.swift */,
+				7390D27F2BF4558700FCB436 /* InstructionsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -403,17 +415,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				7390D24D2BF2B55F00FCB436 /* DessertListView.swift in Sources */,
+				7390D2802BF4558700FCB436 /* InstructionsView.swift in Sources */,
 				7390D25C2BF3D5CE00FCB436 /* RecipeDetailsViewModel.swift in Sources */,
 				7390D2642BF3E74A00FCB436 /* MediumText.swift in Sources */,
 				7390D25A2BF30BA000FCB436 /* RecipeDetailsModel.swift in Sources */,
+				7390D27C2BF440A000FCB436 /* TitleText.swift in Sources */,
 				7390D2512BF3032800FCB436 /* DessertTile.swift in Sources */,
 				7390D2682BF40E4B00FCB436 /* URLImage.swift in Sources */,
 				7390D2622BF3DBF700FCB436 /* HorizontalDividerView.swift in Sources */,
 				7390D2602BF3D85000FCB436 /* IngredientsView.swift in Sources */,
 				7390D24F2BF2BDC600FCB436 /* DessertListViewModel.swift in Sources */,
 				7390D2662BF3E90100FCB436 /* HeadingText.swift in Sources */,
+				7390D2822BF4717100FCB436 /* APIStandard.swift in Sources */,
 				7390D21B2BF2743700FCB436 /* Fetch_Take_HomeApp.swift in Sources */,
 				7390D2782BF40FB100FCB436 /* RecipeDetails.swift in Sources */,
+				7390D27A2BF43EFE00FCB436 /* SmallText.swift in Sources */,
 				7390D2762BF40F1B00FCB436 /* DessertTilesReponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

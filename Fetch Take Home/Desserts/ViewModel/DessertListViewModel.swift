@@ -12,24 +12,26 @@ class DessertListViewModel: ObservableObject {
     @Published var desserts: [Dessert] = []
     
     func loadDessertData() {
-        guard let url = URL(string: "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert") else {
-            return
-        }
-        
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            
+        APIStandard.get(url: "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert", onSuccess: { data in
             do {
                 let response = try JSONDecoder().decode(DessertTilesReponse.self, from: data)
                 DispatchQueue.main.async {
-                    self?.desserts = response.meals
+                    if var meals = response.meals {
+                        self.desserts = meals.filter { meal in
+                            guard let strMeal = meal.strMeal, !strMeal.isEmpty,
+                                  let idMeal = meal.idMeal, !idMeal.isEmpty,
+                                  let strMealThumb = meal.strMealThumb else {
+                                return false
+                            }
+                            return true
+                        }
+                    }
                 }
             } catch {
                 print(error)
             }
-        }
-        task.resume()
+        }, onError: { error in
+            print("Error in Fetching Data \(error)")
+        })
     }
 }

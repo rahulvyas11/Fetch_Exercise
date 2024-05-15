@@ -23,11 +23,11 @@ struct DessertTile: View {
                     
 
                 VStack(alignment: .leading) {
-                    Text(name)
+                    MediumText(text:name)
                         .bold()
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(maxWidth: .infinity, alignment: .center)
                         .foregroundColor(Color.black)
-                }
+                }.padding(.horizontal)
             }
             .padding()
             .background(Color.white)  //

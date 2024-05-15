@@ -5,45 +5,35 @@ struct RecipeDetails: View {
     var mealId: String
     
     @StateObject var recipeDetailsViewModel: RecipeDetailsViewModel = RecipeDetailsViewModel()
-
-    let youtubeURL = URL(string: "https://www.youtube.com/watch?v=dQw4w9WgXcQ")!
     
     var body: some View {
      
         ScrollView {
-            VStack(alignment: .leading) {
-                
+            VStack(alignment: .center) {
                 if recipeDetailsViewModel.hasRecipeLoaded() {
                     URLImage(url: recipeDetailsViewModel.thumbNailURL())
                             .scaledToFill()
-                            .frame(maxWidth: .infinity, maxHeight: 250)
+                            .frame(maxWidth: .infinity, maxHeight: 300
+                            )
                             .background(Color.gray)
                             .clipped()
                 }
                     
                     VStack(alignment: .leading) {
-                        Text(recipeDetailsViewModel.recipeName())
-                            .bold()
-                            .font(.title)
-                            .padding(.top, 8)
-                    
-                    
-                    HStack{
-                        Text(recipeDetailsViewModel.cuisine())
-                            .font(.callout)
-                        Spacer()
-                        Button(action: {
-                            UIApplication.shared.open(youtubeURL)
-                        }) {
-                            Text("Youtube")
-                                .font(.caption)
-                                .bold()
-                                .foregroundColor(.white)
-                                .padding(5)
-                                .background(Color.red)
-                                .cornerRadius(10)
-                        }
-                    }
+                            Button(action: {
+                                        
+                                UIApplication.shared.open(recipeDetailsViewModel.youtubeURL())
+                                    }) {
+                                       
+                                            Image("youtube_logo") // Use your named asset
+                                                .resizable()
+                                                .scaledToFit()
+                                                .frame(width: 50, height: 50)
+                                    }
+                                   
+                                
+                       
+                        
                 
                     VStack(alignment: .leading){
                         HeadingText(text: "Ingredients")
@@ -60,7 +50,7 @@ struct RecipeDetails: View {
                             .bold()
                         
 
-                        MediumText(text: recipeDetailsViewModel.instructions())
+                        InstructionsView(instructions: recipeDetailsViewModel.instructions())
 
                     }
                     
@@ -68,7 +58,16 @@ struct RecipeDetails: View {
                 }
                 .padding()
             }
-        }.edgesIgnoringSafeArea(.all)
+        }    .navigationTitle(recipeDetailsViewModel.recipeName())
+            .navigationBarTitleDisplayMode(.inline)
+            .toolbar {
+                ToolbarItem(placement: .principal) {
+                        HeadingText(text:recipeDetailsViewModel.recipeName())
+                        .lineLimit(1)
+                        .font(.headline)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                }
+            }
             .onAppear(perform: {
                 recipeDetailsViewModel.loadRecipeDetails(mealID: mealId)
             })

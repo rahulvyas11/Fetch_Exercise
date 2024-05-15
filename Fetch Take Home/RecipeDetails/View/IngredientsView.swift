@@ -15,22 +15,24 @@ struct IngredientsView: View {
     
     var body: some View {
         ScrollView{
-          
+
             LazyVGrid(columns: columns, spacing: 20) {
-                
-                
+
                 ForEach(Array(ingredientMeasurementPairs.enumerated()), id: \.0) { index, pair in
-                    
-                                 VStack {
-                                     HorizontalDividerView()
-                                         .frame(height: 0.5)
-                                         .padding(.vertical, 3)
-                                         .padding(.horizontal, -20)
-                                     
-                                     IngredientsTile(ingredientName: pair.ingredient, measurement:pair.measurement)
-                                 }
-                             }
+
+                    VStack {
+                        HorizontalDividerView()
+                             .padding(.vertical, 3)
+                             .padding(.horizontal,-20)
+
+                         IngredientsTile(ingredientName: pair.ingredient, measurement:pair.measurement)
+                            }
+                    }
+                
                 }
+            HorizontalDividerView()
+                .padding(.vertical, 3)
+                .padding(.horizontal,-20)
             }
             
         }
@@ -42,6 +44,7 @@ struct IngredientsTile: View {
     var measurement: String
     var body: some View {
         VStack(alignment: .leading, spacing: 2) {
+           
             
             MediumText(text: ingredientName)
                 .foregroundColor(.red)

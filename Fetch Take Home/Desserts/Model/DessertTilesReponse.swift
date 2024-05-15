@@ -8,11 +8,21 @@
 import Foundation
 
 struct DessertTilesReponse: Codable {
-    let meals: [Dessert]
+    let meals: [Dessert]?
 }
 
-struct Dessert: Hashable, Codable {
-    let strMeal: String
-    let strMealThumb: URL
-    let idMeal: String
+struct Dessert: Hashable, Codable, Comparable {
+    let strMeal: String?
+    let strMealThumb: URL?
+    let idMeal: String?
+    
+    static func < (lhs: Dessert, rhs: Dessert) -> Bool {
+        
+        if let lhs = lhs.strMeal, let rhs = rhs.strMeal {
+            return lhs < rhs
+        }
+        
+        return false
+    }
+    
 }

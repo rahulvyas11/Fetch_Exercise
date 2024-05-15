@@ -11,32 +11,25 @@ class RecipeDetailsViewModel: ObservableObject {
     
     @Published var recipes: RecipeDetailsModel?
     
-    func loadRecipeDetails(mealID: String)
-    {
-        guard let url = URL(string: "https://themealdb.com/api/json/v1/1/lookup.php?i=\(mealID)") else { return }
+   
+    func loadRecipeDetails(mealID: String) {
         
-        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
-            guard let data = data, error == nil else {
-                return
-            }
-            
+        APIStandard.get(url: "https://themealdb.com/api/json/v1/1/lookup.php?i=\(mealID)", onSuccess: { data in
             do {
                 let recipeList = try JSONDecoder().decode(RecipeList.self, from: data)
                 DispatchQueue.main.async {
-
                     if let meals = recipeList.meals {
                         if(!meals.isEmpty) {
-                            self?.recipes = meals[0]
+                            self.recipes = meals[0]
                         }
                     }
                 }
-            }
-            
-            catch{
+            } catch {
                 print(error)
             }
-        }
-        task.resume()
+        }, onError: { error in
+            print(error)
+        })
     }
 }
 
@@ -55,6 +48,10 @@ extension RecipeDetailsViewModel {
     
     func instructions()->String {
         return recipes?.strInstructions ?? ""
+    }
+    
+    func youtubeURL()->URL{
+        return recipes?.strYoutube ?? URL(fileURLWithPath: "")
     }
     
     

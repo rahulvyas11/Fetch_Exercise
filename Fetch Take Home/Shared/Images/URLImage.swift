@@ -4,7 +4,6 @@
 //
 //  Created by Rahul Vyas on 5/14/24.
 //
-
 import SwiftUI
 
 struct URLImage: View {
@@ -12,6 +11,7 @@ struct URLImage: View {
     
     @State private var data: Data?
     @State private var isImageLoaded = false
+    @State private var showErrorImage = false // New state for error handling
 
     var body: some View {
         Group {
@@ -19,32 +19,35 @@ struct URLImage: View {
                 Image(uiImage: uiImage)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 170, height: 150)
-                    
-                    
-                    
-            } else {
-                Image(systemName: "photo.on.rectangle")
+            } else if showErrorImage {
+                Image("placeholderThumb")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 170, height: 150)
-                    .background(Color.gray)
+            } else {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle())
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .background(Color.gray.opacity(0.3)) // Optional background color
                     .onAppear(perform: fetchData)
             }
         }
+        .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity)
+        .aspectRatio(contentMode: .fill)
     }
 
     private func fetchData() {
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("Error downloading image: \(url) \(error)")
-                return
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            if let data = data, UIImage(data: data) != nil {
+                DispatchQueue.main.async {
+                    self.data = data
+                    self.isImageLoaded = true
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.showErrorImage = true
+                }
+                print("Error downloading image: \(error?.localizedDescription ?? "Unknown error")")
             }
-            DispatchQueue.main.async {
-                self.data = data
-                self.isImageLoaded = true
-            }
-        }
-        task.resume()
+        }.resume()
     }
 }
