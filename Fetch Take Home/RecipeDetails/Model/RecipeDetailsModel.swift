@@ -19,8 +19,8 @@ struct RecipeDetailsModel: Hashable, Codable {
     var strCategory:String?
     var strArea:String?
     var strInstructions:String?
-    var strMealThumb:URL?
-    var strYoutube: URL?
+    var strMealThumb: String?
+    var strYoutube: String?
     var strIngredient1: String?
     var strIngredient2: String?
     var strIngredient3: String?

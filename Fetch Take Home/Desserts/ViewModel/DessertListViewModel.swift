@@ -16,11 +16,11 @@ class DessertListViewModel: ObservableObject {
             do {
                 let response = try JSONDecoder().decode(DessertTilesReponse.self, from: data)
                 DispatchQueue.main.async {
-                    if var meals = response.meals {
+                    if let meals = response.meals {
                         self.desserts = meals.filter { meal in
                             guard let strMeal = meal.strMeal, !strMeal.isEmpty,
                                   let idMeal = meal.idMeal, !idMeal.isEmpty,
-                                  let strMealThumb = meal.strMealThumb else {
+                                  meal.strMealThumb != nil else {
                                 return false
                             }
                             return true

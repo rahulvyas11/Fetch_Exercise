@@ -20,19 +20,17 @@ struct RecipeDetails: View {
                 }
                     
                     VStack(alignment: .leading) {
+                        if(recipeDetailsViewModel.hasYoutubeUrl()) {
                             Button(action: {
-                                        
-                                UIApplication.shared.open(recipeDetailsViewModel.youtubeURL())
-                                    }) {
+                                    UIApplication.shared.open(recipeDetailsViewModel.youtubeURL())
+                                }) {
                                             Image("youtube_logo_final")
                                                 .resizable()
                                                 .scaledToFit()
                                                 .frame(width: 70, height: 70)
-                                    }
+                                }
+                        }
                                    
-                                
-                       
-                        
                 
                     VStack(alignment: .leading){
                         HeadingText(text: "Ingredients")

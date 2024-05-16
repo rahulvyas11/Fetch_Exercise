@@ -35,7 +35,7 @@ class RecipeDetailsViewModel: ObservableObject {
 
 extension RecipeDetailsViewModel {
     func thumbNailURL() -> URL {
-        return recipes?.strMealThumb ?? URL(fileURLWithPath: "")
+        return  URL(string: recipes?.strMealThumb ?? "") ?? URL(fileURLWithPath: "")
     }
     
     func recipeName() -> String {
@@ -50,11 +50,13 @@ extension RecipeDetailsViewModel {
         return recipes?.strInstructions ?? ""
     }
     
-    func youtubeURL()->URL{
-        return recipes?.strYoutube ?? URL(fileURLWithPath: "")
+    func hasYoutubeUrl() -> Bool {
+        return !(recipes?.strYoutube ?? "").isEmpty
     }
     
-    
+    func youtubeURL() -> URL {
+        return  URL(string: recipes?.strYoutube ?? "") ?? URL(fileURLWithPath: "")
+    }
     
     func ingredient1() -> String {
         return recipes?.strIngredient1 ?? ""
