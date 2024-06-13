@@ -1,10 +1,10 @@
-# Dessert Recipes App
+# Sweet Dreams App
 ## Installation
 Open the xcodeproj file and build the project. Fetch_Take_HomeApp is the main function.
 Compatible with IOS Versions 15.0 and Up. 
 
 ## Overview
-This is my submission of the Fetch IOS Engineer Take Home Exercise. Below are details on how I implemented the application.
+This app allows users with limited ingredients to cook quick and simple desserts from all over the world!
 
 ## Modules
 I created two modules, one for showcasing the list of dessert recipes available to the user when they launch the app, and the other that shows the detailed recipe when the user clicks on a particular tile.
